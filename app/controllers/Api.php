@@ -18,9 +18,9 @@ class Api extends CI_Controller
             $msg = $this->form_validation->error_string();
         } else {
             // 接收的發票號碼
-            $invoice_number = $_POST["invoice_number"];
+            $invoice_number = $this->input->post('invoice_number');
             // 接收的對獎期數
-            $invoice_date = $_POST["invoice_date"];
+            $invoice_date = $this->input->post('invoice_date');
             // 抓發票各期數中獎資料
             $xml = simplexml_load_file("https://invoice.etax.nat.gov.tw/invoice.xml", "SimpleXMLElement", LIBXML_NOCDATA);
             // 轉陣列
